@@ -24,7 +24,7 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/programs/xkbevd/xkbevd.h,v 3.5 2003/11/17 22:20:53 dawes Exp $ */
 
 #ifndef XKBEVD_H
 #define	XKBEVD_H 1
