@@ -24,16 +24,19 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
+/* $XFree86: xc/programs/xkbevd/cfgscan.c,v 3.7 2001/08/01 00:45:05 tsi Exp $ */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <X11/Xos.h>
 #include <X11/X.h>
 #include <X11/extensions/XKB.h>
 
 #include "tokens.h"
+#include "xkbevd.h"
 
-FILE	*yyin = stdin;
+FILE	*yyin = NULL;
 
 static char scanFileBuf[1024];
 char *	 scanFile= scanFileBuf;
@@ -55,8 +58,7 @@ static	char	buf[BUFSIZE];
 extern	unsigned debugFlags;
 
 static char *
-tokText(tok)
-    int tok;
+tokText(int tok)
 {
 static char buf[32];
 
@@ -106,9 +108,7 @@ static char buf[32];
 #endif
 
 int
-setScanState(file,line)
-    char *	file;
-    int 	line;
+setScanState(char *file, int line)
 {
     if (file!=NULL)
 	strncpy(scanFile,file,1024);
@@ -117,8 +117,8 @@ setScanState(file,line)
     return 1;
 }
 
-int
-yyGetString()
+static int
+yyGetString(void)
 {
 int ch;
 
@@ -172,15 +172,15 @@ int ch;
 	buf[nInBuf++] = '\0';
 	if  ( scanStr )
 	    free( scanStr );
-	scanStr = (char *)uStringDup(buf);
+	scanStr = uStringDup(buf);
 	scanStrLine = lineNum;
 	return STRING;
     }
     return ERROR;
 }
 
-int
-yyGetKeyName()
+static int
+yyGetKeyName(void)
 {
 int ch;
 
@@ -234,7 +234,7 @@ int ch;
 	buf[nInBuf++] = '\0';
 	if  ( scanStr )
 	    free( scanStr );
-	scanStr = (char *)uStringDup(buf);
+	scanStr = uStringDup(buf);
 	scanStrLine = lineNum;
 	return KEYNAME;
     }
@@ -257,12 +257,11 @@ struct _Keyword {
 };
 int	numKeywords = sizeof(keywords)/sizeof(struct _Keyword);
 
-int
-yyGetIdent(first)
-    int first;
+static int
+yyGetIdent(int first)
 {
 int ch,i,found;
-int	rtrn;
+int	rtrn = -1;
 
     buf[0] = first; nInBuf = 1;
     while ( ((ch=getc(yyin))!=EOF) && (isalnum(ch)||(ch=='_')) ) {
@@ -281,7 +280,7 @@ int	rtrn;
     if (!found) {
 	if  ( scanStr )
 	    free( scanStr );
-	scanStr = (char *)uStringDup(buf);
+	scanStr = uStringDup(buf);
 	scanStrLine = lineNum;
 	rtrn = IDENT;
     }
@@ -294,9 +293,8 @@ int	rtrn;
     return rtrn;
 }
 
-int
-yyGetNumber(ch)
-    int ch;
+static int
+yyGetNumber(int ch)
 {
 int	isFloat= 0;
 
@@ -330,7 +328,7 @@ int	isFloat= 0;
 }
 
 int
-yylex()
+yylex(void)
 {
 int	ch;
 int	rtrn;

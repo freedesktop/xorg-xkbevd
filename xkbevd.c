@@ -24,9 +24,13 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
+/* $XFree86: xc/programs/xkbevd/xkbevd.c,v 3.9 2001/07/25 15:05:25 dawes Exp $ */
 
 #define	DEBUG_VAR xkbevdDebug
+#include <X11/Xosdefs.h>
+#include <stdlib.h>
 #include "xkbevd.h"
+
 
 #define	lowbit(x)	((x) & (-(x)))
 
@@ -78,10 +82,8 @@ XkbDescPtr	xkb=		NULL;
 #define	M(m)	fprintf(stderr,(m))
 #define	M1(m,a)	fprintf(stderr,(m),(a))
 
-void
-Usage(argc,argv)
-    int 	argc;
-    char *	argv[];
+static void
+Usage(int argc, char *argv[])
 {
     M1("Usage: %s [options]...\n",argv[0]);
     M("Legal options:\n");
@@ -98,10 +100,8 @@ Usage(argc,argv)
 
 /***====================================================================***/
 
-Bool
-parseArgs(argc,argv)
-    int		argc;
-    char *	argv[];
+static Bool
+parseArgs(int argc, char *argv[])
 {
 register int i;
 
@@ -204,12 +204,8 @@ register int i;
     return True;
 }
 
-Display *
-GetDisplay(program,dpyName,opcodeRtrn,evBaseRtrn)
-    char *	program;
-    char *	dpyName;
-    int *	opcodeRtrn;
-    int *	evBaseRtrn;
+static Display *
+GetDisplay(char *program, char *dpyName, int *opcodeRtrn, int *evBaseRtrn)
 {
 int	mjr,mnr,error;
 Display	*dpy;
@@ -251,8 +247,7 @@ Display	*dpy;
 /***====================================================================***/
 
 void
-InterpretConfigs(cfg)
-    CfgEntryPtr	cfg;
+InterpretConfigs(CfgEntryPtr cfg)
 {
 char *		name;
 unsigned	priv= 0;
@@ -344,9 +339,8 @@ unsigned	priv= 0;
     return;
 }
 
-CfgEntryPtr
-FindMatchingConfig(ev)
-    XkbEvent *	ev;
+static CfgEntryPtr
+FindMatchingConfig(XkbEvent *ev)
 {
 CfgEntryPtr	cfg,dflt;
 
@@ -380,9 +374,8 @@ CfgEntryPtr	cfg,dflt;
     return dflt;
 }
 
-Bool
-ProcessMatchingConfig(ev)
-    XkbEvent *	ev;
+static Bool
+ProcessMatchingConfig(XkbEvent *ev)
 {
 CfgEntryPtr	cfg;
 char		buf[1024],*cmd;
@@ -447,14 +440,18 @@ int		ok;
 /***====================================================================***/
 
 int
-main(argc,argv)
-    int		argc;
-    char *	argv[];
+main(int argc, char *argv[])
 {
 FILE 	*	file;
 static char 	buf[1024];
 XkbEvent	ev;
 Bool		ok;
+
+
+    yyin = stdin;
+    uSetEntryFile(NullString);
+    uSetDebugFile(NullString);
+    uSetErrorFile(NullString);
 
     if (!parseArgs(argc,argv))
 	exit(1);

@@ -24,6 +24,8 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
+/* $XFree86: xc/programs/xkbevd/xkbevd.h,v 3.4 2001/01/17 23:46:09 dawes Exp $ */
+
 #ifndef XKBEVD_H
 #define	XKBEVD_H 1
 
@@ -92,11 +94,18 @@ extern char *SubstituteEventArgs(
 #endif
 );
 
-extern Bool PrintXkbEvent(
+extern void PrintXkbEvent(
 #if NeedFunctionPrototypes
 	FILE *		/* file */,
 	XkbEvent *	/* ev */
 #endif
 );
 
+extern int setScanState ( char * file, int line );
+extern int CFGParseFile ( FILE *file );
+
+extern int yylex(void);
+extern int yyparse(void);
+extern int yyerror(char *s);
+extern int yywrap(void);
 #endif /* XKBEVD_H */

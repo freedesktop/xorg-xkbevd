@@ -24,6 +24,8 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
+/* $XFree86: xc/programs/xkbevd/cfgparse.y,v 1.5 2002/10/16 04:53:17 tsi Exp $ */
+
 %token
 	END_OF_FILE	0
 	ERROR		255
@@ -171,6 +173,7 @@ ActionType	:	NONE	 { $$ = NoAction; }
 		|	SHELL	 { $$ = ShellAction; }
 		|	SOUND	 { $$ = SoundAction; }
 		|		 { $$ = UnknownAction; }
+		;
 
 OptNameSpec	:	NameSpec { $$= $1; }
 		|		 { $$= NULL; }
@@ -191,8 +194,7 @@ String		:	STRING	{ $$= scanStr; scanStr= NULL; }
 		;
 %%
 int
-yyerror(s)
-char	*s;
+yyerror(char *s)
 {
     (void)fprintf(stderr,"%s: line %d of %s\n",s,lineNum,
 					(scanFile?scanFile:"(unknown)"));
@@ -203,17 +205,15 @@ char	*s;
 
 
 int
-yywrap()
+yywrap(void)
 {
    return 1;
 }
 
 int
-CFGParseFile(file)
-FILE 		 *file;
+CFGParseFile(FILE *file)
 {
     if (file) {
-	extern FILE *yyin;
 	yyin= file;
 	if (yyparse()==0) {
 	    return 1;
