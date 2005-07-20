@@ -21,8 +21,8 @@
 
 bin_PROGRAMS = xkbevd
 
-xkbevd_CFLAGS = $(DEP_CFLAGS)
-xkbevd_LDADD = $(DEP_LIBS)
+xkbevd_CFLAGS = $(XKBEVD_CFLAGS)
+xkbevd_LDADD = $(XKBEVD_LIBS)
 
 xkbevd_SOURCES =	\
         cfgparse.y \
