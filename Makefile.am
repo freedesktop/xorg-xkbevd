@@ -1,4 +1,3 @@
-# 
 #  Copyright 2005  Red Hat, Inc.
 # 
 #  Permission to use, copy, modify, distribute, and sell this software and its
@@ -35,6 +34,5 @@ xkbevd_SOURCES =	\
         xkbevd.c \
         xkbevd.h
 
-dist_man_MANS = \
+dist_man1_MANS = \
         xkbevd.man
-
