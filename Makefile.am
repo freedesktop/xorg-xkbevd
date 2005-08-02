@@ -36,3 +36,8 @@ xkbevd_SOURCES =	\
 
 dist_man1_MANS = \
         xkbevd.man
+
+BUILT_SOURCES = cfgparse.c cfgparse.h
+CLEANFILES = $(BUILT_SOURCES)
+
+cfgparse.h: cfgparse.c
