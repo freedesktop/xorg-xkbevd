@@ -41,3 +41,6 @@ BUILT_SOURCES = cfgparse.c cfgparse.h
 CLEANFILES = $(BUILT_SOURCES)
 
 cfgparse.h: cfgparse.c
+
+# Sample configuration file
+EXTRA_DIST = example.cf
