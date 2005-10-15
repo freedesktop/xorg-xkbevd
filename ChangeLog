@@ -1,3 +1,8 @@
+2005-10-15  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+
+	* Makefile.am: Have generated files be cleaned by maintainer in
+	order to pass check-tarball test.
+
 2005-08-02  Keith Packard  <keithp@keithp.com>
 
 	* Makefile.am:
