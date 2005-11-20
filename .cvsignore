@@ -1,7 +1,10 @@
 .deps
+Makefile
+Makefile.in
 aclocal.m4
 autom4te.cache
 cfgparse.c
+cfgparse.h
 compile
 config.h
 config.h.in
@@ -10,8 +13,6 @@ config.status
 configure
 depcomp
 install-sh
-Makefile
-Makefile.in
 missing
 mkinstalldirs
 stamp-h1
