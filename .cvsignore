@@ -6,10 +6,12 @@ autom4te.cache
 cfgparse.c
 cfgparse.h
 compile
+config.guess
 config.h
 config.h.in
 config.log
 config.status
+config.sub
 configure
 depcomp
 install-sh
@@ -17,5 +19,6 @@ missing
 mkinstalldirs
 stamp-h1
 xkbevd
+xkbevd.1
 xkbevd-*.tar.bz2
 xkbevd-*.tar.gz
