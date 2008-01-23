@@ -75,7 +75,7 @@ SUFFIXES = .$(APP_MAN_SUFFIX) .man
 	sed $(MAN_SUBSTS) < $< > $@
 
 EXTRA_DIST += ChangeLog
-MAINTAINERCLEANFILES = ChangeLog
+MAINTAINERCLEANFILES += ChangeLog
 
 .PHONY: ChangeLog
 
