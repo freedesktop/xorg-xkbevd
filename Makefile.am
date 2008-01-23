@@ -20,7 +20,7 @@
 
 bin_PROGRAMS = xkbevd
 
-xkbevd_CFLAGS = $(XKBEVD_CFLAGS) -DDFLT_XKB_CONFIG_ROOT='"$(datadir)/X11/xkb"'
+AM_CFLAGS = $(XKBEVD_CFLAGS) -DDFLT_XKB_CONFIG_ROOT='"$(datadir)/X11/xkb"'
 xkbevd_LDADD = $(XKBEVD_LIBS)
 
 xkbevd_SOURCES =	\
