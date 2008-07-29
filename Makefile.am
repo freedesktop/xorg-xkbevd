@@ -40,8 +40,8 @@ appman_PRE = \
 BUILT_SOURCES = cfgparse.c
 MAINTAINERCLEANFILES = $(BUILT_SOURCES)
 
-# Sample configuration file
-EXTRA_DIST = example.cf
+# Sample configuration files
+EXTRA_DIST = example.cf xkbevd.cf
 
 appmandir = $(APP_MAN_DIR)
 

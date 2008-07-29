@@ -201,6 +201,11 @@ register int i;
 	    return False;
 	}
     }
+    if (background == False) {
+	eventMask = XkbAllEventsMask;
+	verbose++;
+    }
+
     return True;
 }
 
@@ -382,8 +387,11 @@ char		buf[1024],*cmd;
 int		ok;
 
     cfg= FindMatchingConfig(ev);
-    if (!cfg)
+    if (!cfg) {
+	if (verbose)
+	    PrintXkbEvent(stdout,ev);
 	return False;
+    }
     if (cfg->action.type==UnknownAction) {
 	if (cfg->action.text==NULL)
 	    cfg->action.type= NoAction;
@@ -478,7 +486,7 @@ Bool		ok;
 	    }
 	    sprintf(buf,DFLT_SYS_XKBEVD_CONFIG,DFLT_XKB_CONFIG_ROOT);
 	    file= fopen(cfgFileName,"r");
-	    if (file==NULL) {
+	    if (file==NULL && !eventMask) {
 		if (verbose) {
 		    uError("Couldn't find a config file anywhere\n");
 		    uAction("Exiting\n");
@@ -502,7 +510,7 @@ Bool		ok;
     ok= True;
     setScanState(cfgFileName,1);
     CFGParseFile(file);
-    if (!config) {
+    if (!config && !eventMask) {
 	uError("No configuration specified in \"%s\"\n",cfgFileName);
 	goto BAILOUT;
     }
