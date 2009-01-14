@@ -25,18 +25,26 @@ AC_INIT(xkbevd,[1.0.2], [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg
 AM_INIT_AUTOMAKE([dist-bzip2])
 AM_MAINTAINER_MODE
 
+# Require xorg-macros: XORG_CWARNFLAGS, XORG_CHANGELOG
+m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.2 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.2)
+
 AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_YACC
 
+XORG_CWARNFLAGS
+
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XKBEVD, xkbfile x11)
+XKBEVD_CFLAGS="$CWARNFLAGS $XKBEVD_CFLAGS"
 AC_SUBST(XKBEVD_CFLAGS)
 AC_SUBST(XKBEVD_LIBS)
 
 XORG_MANPAGE_SECTIONS
 XORG_RELEASE_VERSION
+XORG_CHANGELOG
 
 AC_OUTPUT([Makefile])

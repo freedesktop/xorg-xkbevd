@@ -58,22 +58,24 @@
 
 /***====================================================================***/
 
-char *		dpyName=	NULL;
+static char *	dpyName=	NULL;
 Display *	dpy=		NULL;
-char *		cfgFileName=	NULL;
+static char *	cfgFileName=	NULL;
 int		xkbOpcode=	0;
 int		xkbEventCode=	0;
 Bool		detectableRepeat= False;
 
+static
 CfgEntryPtr	config=		NULL;
+static
 unsigned long	eventMask=	0;
 
-Bool		synch=		False;
-int		verbose=	0;
-Bool		background=	False;
+static Bool	synch=		False;
+static int	verbose=	0;
+static Bool	background=	False;
 
-char *		soundCmd=	NULL;
-char *		soundDir=	NULL;
+static char *	soundCmd=	NULL;
+static char *	soundDir=	NULL;
 
 XkbDescPtr	xkb=		NULL;
 
