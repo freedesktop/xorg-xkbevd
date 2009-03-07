@@ -411,7 +411,7 @@ int		ok;
 	    return True;
 	case EchoAction:
 	    if (cfg->action.text!=NULL) {
-		sprintf(buf,cfg->action.text);
+		sprintf(buf,"%s",cfg->action.text);
 		cmd= SubstituteEventArgs(buf,ev);
 		printf("%s",cmd);
 	    }
