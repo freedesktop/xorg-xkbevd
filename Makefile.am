@@ -20,7 +20,8 @@
 
 bin_PROGRAMS = xkbevd
 
-AM_CFLAGS = $(XKBEVD_CFLAGS) -DDFLT_XKB_CONFIG_ROOT='"$(datadir)/X11/xkb"'
+AM_CFLAGS = $(CWARNFLAGS) $(XKBEVD_CFLAGS) \
+	-DDFLT_XKB_CONFIG_ROOT='"$(datadir)/X11/xkb"'
 xkbevd_LDADD = $(XKBEVD_LIBS)
 
 xkbevd_SOURCES =	\
@@ -72,7 +73,7 @@ MAN_SUBSTS = \
 SUFFIXES = .$(APP_MAN_SUFFIX) .man
 
 .man.$(APP_MAN_SUFFIX):
-	sed $(MAN_SUBSTS) < $< > $@
+	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
 
 EXTRA_DIST += ChangeLog
 MAINTAINERCLEANFILES += ChangeLog
