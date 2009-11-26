@@ -39,7 +39,8 @@ appman_PRE = \
         xkbevd.man
 
 BUILT_SOURCES = cfgparse.c
-MAINTAINERCLEANFILES = $(BUILT_SOURCES)
+MAINTAINERCLEANFILES = ChangeLog INSTALL
+MAINTAINERCLEANFILES += $(BUILT_SOURCES)
 
 # Sample configuration files
 EXTRA_DIST = example.cf xkbevd.cf
