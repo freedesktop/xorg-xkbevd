@@ -36,7 +36,8 @@ AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_YACC
 AC_PATH_PROG([YACC_INST], $YACC)
-test -z "$YACC_INST" && AC_MSG_ERROR([yacc not found - unable to compile cfgparse.y])
+AC_CHECK_FILE([$srcdir/cfgparse.c], [],
+              [test -z "$YACC_INST" && AC_MSG_ERROR([yacc not found - unable to compile cfgparse.y])])
 
 XORG_DEFAULT_OPTIONS
 
