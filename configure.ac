@@ -21,7 +21,8 @@ dnl
 dnl Process this file with autoconf to create configure.
 
 AC_PREREQ([2.60])
-AC_INIT(xkbevd, [1.1.0], [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],xkbevd)
+AC_INIT([xkbevd], [1.1.1],
+        [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg], [xkbevd])
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
 
