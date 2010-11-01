@@ -35,7 +35,7 @@ AM_CONFIG_HEADER(config.h)
 
 AC_PROG_YACC
 AC_PATH_PROG([YACC_INST], $YACC)
-if test ! -f "$srcdir/cfgparse.c"; then
+if test ! -f "cfgparse.c"; then
    if test -z "$YACC_INST"; then
       AC_MSG_ERROR([yacc not found - unable to compile cfgparse.y])
    fi
