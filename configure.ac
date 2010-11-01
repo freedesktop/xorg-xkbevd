@@ -35,8 +35,11 @@ AM_CONFIG_HEADER(config.h)
 
 AC_PROG_YACC
 AC_PATH_PROG([YACC_INST], $YACC)
-AC_CHECK_FILE([$srcdir/cfgparse.c], [],
-              [test -z "$YACC_INST" && AC_MSG_ERROR([yacc not found - unable to compile cfgparse.y])])
+if test ! -f "$srcdir/cfgparse.c"; then
+   if test -z "$YACC_INST"; then
+      AC_MSG_ERROR([yacc not found - unable to compile cfgparse.y])
+   fi
+fi
 
 XORG_DEFAULT_OPTIONS
 
