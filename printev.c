@@ -7,19 +7,19 @@
  fee is hereby granted, provided that the above copyright
  notice appear in all copies and that both that copyright
  notice and this permission notice appear in supporting
- documentation, and that the name of Silicon Graphics not be 
- used in advertising or publicity pertaining to distribution 
+ documentation, and that the name of Silicon Graphics not be
+ used in advertising or publicity pertaining to distribution
  of the software without specific prior written permission.
- Silicon Graphics makes no representation about the suitability 
+ Silicon Graphics makes no representation about the suitability
  of this software for any purpose. It is provided "as is"
  without any express or implied warranty.
- 
- SILICON GRAPHICS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
- SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY 
+
+ SILICON GRAPHICS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
+ SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
  AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL SILICON
- GRAPHICS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL 
- DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, 
- DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE 
+ GRAPHICS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL
+ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
  OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
@@ -153,7 +153,7 @@ static void
 do_XkbIndicatorNotify(FILE *file, XkbEvent *xkbev)
 {
     XkbIndicatorNotifyEvent *leds = &xkbev->indicators;
-    if (leds->xkb_type==XkbIndicatorStateNotify) 
+    if (leds->xkb_type==XkbIndicatorStateNotify)
 	 fprintf(file,"    state changes= 0x%08x, new state= 0x%08x\n",
 					leds->changed,leds->state);
     else fprintf(file,"    map changes= 0x%08x, state= 0x%08x\n",
@@ -391,7 +391,7 @@ do_ButtonPress(XkbEvent *eventp)
     printf ("    root 0x%lx, subw 0x%lx, time %lu, (%d,%d), root:(%d,%d),\n",
 	    e->root, e->subwindow, e->time, e->x, e->y, e->x_root, e->y_root);
     printf ("    state 0x%x, group= %d, button %u, same_screen %s\n",
-	    e->state&0x1FFF, (e->state>>13)&0x7, e->button, 
+	    e->state&0x1FFF, (e->state>>13)&0x7, e->button,
 	    ynText(e->same_screen));
 
     return;
@@ -412,7 +412,7 @@ do_MotionNotify(XkbEvent *eventp)
     printf ("    root 0x%lx, subw 0x%lx, time %lu, (%d,%d), root:(%d,%d),\n",
 	    e->root, e->subwindow, e->time, e->x, e->y, e->x_root, e->y_root);
     printf ("    state 0x%x, group= %d, is_hint %u, same_screen %s\n",
-	    e->state&0x1FFF, (e->state>>13)&0x7, e->is_hint, 
+	    e->state&0x1FFF, (e->state>>13)&0x7, e->is_hint,
 	    ynText(e->same_screen));
 
     return;

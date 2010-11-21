@@ -7,19 +7,19 @@
  fee is hereby granted, provided that the above copyright
  notice appear in all copies and that both that copyright
  notice and this permission notice appear in supporting
- documentation, and that the name of Silicon Graphics not be 
- used in advertising or publicity pertaining to distribution 
+ documentation, and that the name of Silicon Graphics not be
+ used in advertising or publicity pertaining to distribution
  of the software without specific prior written permission.
- Silicon Graphics makes no representation about the suitability 
+ Silicon Graphics makes no representation about the suitability
  of this software for any purpose. It is provided "as is"
  without any express or implied warranty.
- 
- SILICON GRAPHICS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
- SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY 
+
+ SILICON GRAPHICS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
+ SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
  AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL SILICON
- GRAPHICS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL 
- DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, 
- DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE 
+ GRAPHICS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL
+ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
  OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
@@ -116,7 +116,7 @@ register int i;
 	    else {
 		char *name= argv[++i];
 		if (cfgFileName!=NULL) {
-		    if (uStringEqual(cfgFileName,name)) 
+		    if (uStringEqual(cfgFileName,name))
 			uWarning("Config file \"%s\" specified twice!\n");
 		    else {
 			uWarning("Multiple config files on command line\n");
@@ -135,7 +135,7 @@ register int i;
 	    else {
 		char *name= argv[++i];
 		if (dpyName!=NULL) {
-		    if (uStringEqual(dpyName,name)) 
+		    if (uStringEqual(dpyName,name))
 			uWarning("Display \"%s\" specified twice!\n");
 		    else {
 			uWarning("Multiple displays on command line\n");
@@ -154,7 +154,7 @@ register int i;
 	    else {
 		char *name= argv[++i];
 		if (soundCmd!=NULL) {
-		    if (uStringEqual(soundCmd,name)) 
+		    if (uStringEqual(soundCmd,name))
 			uWarning("Sound command \"%s\" specified twice!\n");
 		    else {
 			uWarning("Multiple sound commands on command line\n");
@@ -173,7 +173,7 @@ register int i;
 	    else {
 		char *name= argv[++i];
 		if (soundDir!=NULL) {
-		    if (uStringEqual(soundDir,name)) 
+		    if (uStringEqual(soundDir,name))
 			uWarning("Sound directory \"%s\" specified twice!\n");
 		    else {
 			uWarning("Multiple sound dirs on command line\n");
@@ -289,9 +289,9 @@ unsigned	priv= 0;
 		break;
 	    case XkbAccessXNotify:
 		priv= 0;
-		if (name==NULL)		
+		if (name==NULL)
 		     priv= XkbAllNewKeyboardEventsMask;
-		else if (uStrCaseEqual(name,"skpress"))	
+		else if (uStrCaseEqual(name,"skpress"))
 		     priv= XkbAXN_SKPressMask;
 		else if (uStrCaseEqual(name,"skaccept"))
 		     priv= XkbAXN_SKAcceptMask;
@@ -498,7 +498,7 @@ Bool		ok;
 
     if (background) {
 	if (fork()!=0) {
-	    if (verbose) 
+	    if (verbose)
 		uInformation("Running in the background\n");
 	    exit(0);
 	}

@@ -11,8 +11,8 @@
    *
    * THE INFORMATION IN THIS SOFTWARE IS SUBJECT TO CHANGE WITHOUT NOTICE AND
    * SHOULD NOT BE CONSTRUED AS A COMMITMENT BY DIGITAL EQUIPMENT CORPORATION.
-   * DIGITAL MAKES NO REPRESENTATIONS ABOUT THE SUITABILITY OF THIS SOFTWARE 
-   * FOR ANY PURPOSE.  IT IS SUPPLIED "AS IS" WITHOUT EXPRESS OR IMPLIED 
+   * DIGITAL MAKES NO REPRESENTATIONS ABOUT THE SUITABILITY OF THIS SOFTWARE
+   * FOR ANY PURPOSE.  IT IS SUPPLIED "AS IS" WITHOUT EXPRESS OR IMPLIED
    * WARRANTY.
    *
    * IF THE SOFTWARE IS MODIFIED IN A MANNER CREATING DERIVATIVE COPYRIGHT
@@ -24,7 +24,7 @@
    * that the above copyright notice appear in all copies and that both that
    * copyright notice and this permission notice appear in supporting
    * documentation, and that the name of Digital Equipment Corporation not be
-   * used in advertising or publicity pertaining to distribution of the 
+   * used in advertising or publicity pertaining to distribution of the
    * software without specific, written prior permission.
   \*/
 /* $XFree86: xc/programs/xkbevd/utils.h,v 1.6 2002/01/14 18:30:11 dawes Exp $ */
@@ -79,7 +79,7 @@ typedef union {
 	int		 i;
 	unsigned	 u;
 	void		*p;
-	void		*(*fp)(); 
+	void		*(*fp)();
 } Union;
 #endif
 
@@ -272,7 +272,7 @@ extern	int	uEntryLevel;
 #define	uFLAG_ENTRY7(f,s,a,b,c,d,e,g,h)
 #define	uFLAG_RETURN(v)			{ return(v);}
 #define	uFLAG_VOIDRETURN		{ return; }
-#endif 
+#endif
 
 _XFUNCPROTOEND
 
