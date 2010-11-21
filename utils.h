@@ -120,13 +120,13 @@ extern	void	uFree(
 
 /***====================================================================***/
 
-extern Boolean uSetErrorFile ( char *name );
-extern void uInformation ( char *s, ...);
-extern void uAction ( char *s, ... );
-extern void uWarning ( char *s, ... );
-extern void uError ( char *s, ... );
-extern void uFatalError(char *s,...);
-extern void uInternalError ( char *s, ... );
+extern Boolean uSetErrorFile ( const char *name );
+extern void uInformation ( const char *s, ...);
+extern void uAction ( const char *s, ... );
+extern void uWarning ( const char *s, ... );
+extern void uError ( const char *s, ... );
+extern void uFatalError( const char *s,...);
+extern void uInternalError ( const char *s, ... );
 
 /***====================================================================***/
 
@@ -142,19 +142,19 @@ extern void uInternalError ( char *s, ... );
 #define	uStrCasePrefix(p,s)	(strncasecmp(p,s,strlen(p))==0)
 #else
 extern	int uStrCaseCmp(
-	char *	/* s1 */,
-	char *	/* s2 */
+	const char *	/* s1 */,
+ 	const char *	/* s2 */
 );
 extern	int uStrCasePrefix(
-	char *	/* p */,
-	char *	/* str */
+	const char *	/* p */,
+	const char *	/* str */
 );
 #endif
 #ifdef HAVE_STRDUP
 #define	uStringDup(s1)		(strdup(s1))
 #else
 extern	char *uStringDup(
-	char *	/* s1 */
+	const char *	/* s1 */
 );
 #endif
 
@@ -176,10 +176,10 @@ extern	char *uStringDup(
 extern
 unsigned	int	DEBUG_VAR;
 
-extern	void	uDebug( char *s, ... );
-extern	void	uDebugNOI( char *s, ... );	/* no indent */
+extern	void	uDebug( const char *s, ... );
+extern	void	uDebugNOI( const char *s, ... );	/* no indent */
 extern	Boolean	uSetDebugFile(
-    char *name
+    const char *name
 );
 extern	FILE	*uDebugFile;
 extern	int	uDebugIndentLevel;
@@ -215,11 +215,11 @@ extern	int	uDebugIndentSize;
 #endif
 
 extern	Boolean	uSetEntryFile(
-    char *name
+    const char *name
 );
-extern	void	uEntry(int l, char *s, ... );
+extern	void	uEntry(int l, const char *s, ... );
 extern	void	uExit(
-    int l,char *rtVal
+    int l, const char *rtVal
 );
 #ifdef ENTRY_TRACKING_ON
 #define	ENTRY_BIT	0x10
