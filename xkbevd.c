@@ -117,7 +117,8 @@ register int i;
 		char *name= argv[++i];
 		if (cfgFileName!=NULL) {
 		    if (uStringEqual(cfgFileName,name))
-			uWarning("Config file \"%s\" specified twice!\n");
+			uWarning("Config file \"%s\" specified twice!\n",
+				 name);
 		    else {
 			uWarning("Multiple config files on command line\n");
 			uAction("Using \"%s\", ignoring \"%s\"\n",name,
@@ -136,7 +137,8 @@ register int i;
 		char *name= argv[++i];
 		if (dpyName!=NULL) {
 		    if (uStringEqual(dpyName,name))
-			uWarning("Display \"%s\" specified twice!\n");
+			uWarning("Display \"%s\" specified twice!\n",
+				 name);
 		    else {
 			uWarning("Multiple displays on command line\n");
 			uAction("Using \"%s\", ignoring \"%s\"\n",name,
@@ -155,7 +157,8 @@ register int i;
 		char *name= argv[++i];
 		if (soundCmd!=NULL) {
 		    if (uStringEqual(soundCmd,name))
-			uWarning("Sound command \"%s\" specified twice!\n");
+			uWarning("Sound command \"%s\" specified twice!\n",
+				 name);
 		    else {
 			uWarning("Multiple sound commands on command line\n");
 			uAction("Using \"%s\", ignoring \"%s\"\n",name,
@@ -174,7 +177,8 @@ register int i;
 		char *name= argv[++i];
 		if (soundDir!=NULL) {
 		    if (uStringEqual(soundDir,name))
-			uWarning("Sound directory \"%s\" specified twice!\n");
+			uWarning("Sound directory \"%s\" specified twice!\n",
+				 name);
 		    else {
 			uWarning("Multiple sound dirs on command line\n");
 			uAction("Using \"%s\", ignoring \"%s\"\n",name,
@@ -277,7 +281,7 @@ unsigned	priv= 0;
 		}
 	    }
 	    else {
-		uWarning("Assignment to unknown variable \"%s\"\n",cfg->name);
+		uWarning("Assignment to unknown variable \"%s\"\n", name);
 		uAction("Ignored\n");
 	    }
 	}
@@ -371,7 +375,8 @@ CfgEntryPtr	cfg,dflt;
 		    return cfg;
 		break;
 	   default:
-		uInternalError("Can't handle type %d XKB events yet, Sorry.\n");
+	        uInternalError("Can't handle type %d XKB events yet, Sorry.\n",
+			       ev->any.xkb_type);
 		break;
 	}
     }
