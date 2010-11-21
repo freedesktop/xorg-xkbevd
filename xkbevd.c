@@ -81,22 +81,19 @@ XkbDescPtr	xkb=		NULL;
 
 /***====================================================================***/
 
-#define	M(m)	fprintf(stderr,(m))
-#define	M1(m,a)	fprintf(stderr,(m),(a))
-
 static void
 Usage(int argc, char *argv[])
 {
-    M1("Usage: %s [options]...\n",argv[0]);
-    M("Legal options:\n");
-    M("-?,-help             Print this message\n");
-    M("-cfg <file>          Specify a config file\n");
-    M("-sc <cmd>            Specify the command to play sounds\n");
-    M("-sd <dir>            Specify the root directory for sound files\n");
-    M("-d[isplay] <dpy>     Specify the display to watch\n");
-    M("-bg                  Run in background\n");
-    M("-synch               Force synchronization\n");
-    M("-v                   Print verbose messages\n");
+    fprintf(stderr, "Usage: %s [options]...\n%s", argv[0],
+	    "Legal options:\n"
+	    "-?, -help            Print this message\n"
+	    "-cfg <file>          Specify a config file\n"
+	    "-sc <cmd>            Specify the command to play sounds\n"
+	    "-sd <dir>            Specify the root directory for sound files\n"
+	    "-d[isplay] <dpy>     Specify the display to watch\n"
+	    "-bg                  Run in background\n"
+	    "-synch               Force synchronization\n"
+	    "-v                   Print verbose messages\n");
     return;
 }
 
