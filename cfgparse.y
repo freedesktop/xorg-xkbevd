@@ -1,4 +1,3 @@
-/* $Xorg: cfgparse.y,v 1.3 2000/08/17 19:54:49 cpqbld Exp $ */
 /************************************************************
  Copyright (c) 1994 by Silicon Graphics Computer Systems, Inc.
 
@@ -24,7 +23,6 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
-/* $XFree86: xc/programs/xkbevd/cfgparse.y,v 1.4tsi Exp $ */
 
 %token
 	END_OF_FILE	0

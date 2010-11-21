@@ -1,7 +1,3 @@
-.\" $XdotOrg: $
-.\" $Xorg: xkbevd.man,v 1.3 2000/08/17 19:54:49 cpqbld Exp $
-.\"
-.\" $XFree86: xc/programs/xkbevd/xkbevd.man,v 1.7 2001/01/27 18:21:16 dawes Exp $
 .\"
 .TH XKBEVD 1 __xorgversion__
 .SH NAME
