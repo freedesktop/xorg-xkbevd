@@ -18,6 +18,7 @@
 #  TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 #  PERFORMANCE OF THIS SOFTWARE.
 
+SUBDIRS = man
 bin_PROGRAMS = xkbevd
 
 AM_CFLAGS = $(CWARNFLAGS) $(XKBEVD_CFLAGS) \
@@ -35,29 +36,12 @@ xkbevd_SOURCES =	\
         xkbevd.c \
         xkbevd.h
 
-appman_PRE = \
-        xkbevd.man
-
 BUILT_SOURCES = cfgparse.c
 MAINTAINERCLEANFILES = ChangeLog INSTALL
 MAINTAINERCLEANFILES += $(BUILT_SOURCES)
 
 # Sample configuration files
 EXTRA_DIST = example.cf xkbevd.cf
-
-appmandir = $(APP_MAN_DIR)
-
-appman_DATA = $(appman_PRE:man=@APP_MAN_SUFFIX@)
-
-EXTRA_DIST += $(appman_PRE)
-CLEANFILES = $(appman_DATA)
-
-SUFFIXES = .$(APP_MAN_SUFFIX) .man
-
-# String replacements in MAN_SUBSTS now come from xorg-macros.m4 via configure
-.man.$(APP_MAN_SUFFIX):
-	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
-
 
 .PHONY: ChangeLog INSTALL
 
