@@ -21,8 +21,9 @@
 SUBDIRS = man
 bin_PROGRAMS = xkbevd
 
-AM_CFLAGS = $(CWARNFLAGS) $(XKBEVD_CFLAGS) \
-	-DDFLT_XKB_CONFIG_ROOT='"$(datadir)/X11/xkb"'
+AM_CPPFLAGS = -DDFLT_XKB_CONFIG_ROOT='"$(datadir)/X11/xkb"'
+AM_CFLAGS = $(CWARNFLAGS) $(XKBEVD_CFLAGS)
+
 xkbevd_LDADD = $(XKBEVD_LIBS)
 
 xkbevd_SOURCES =	\
