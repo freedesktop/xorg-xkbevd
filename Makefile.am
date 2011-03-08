@@ -36,12 +36,10 @@ xkbevd_SOURCES =	\
         xkbevd.c \
         xkbevd.h
 
-BUILT_SOURCES = cfgparse.c
-MAINTAINERCLEANFILES = ChangeLog INSTALL
-MAINTAINERCLEANFILES += $(BUILT_SOURCES)
-
 # Sample configuration files
 EXTRA_DIST = example.cf xkbevd.cf
+
+MAINTAINERCLEANFILES = ChangeLog INSTALL
 
 .PHONY: ChangeLog INSTALL
 
