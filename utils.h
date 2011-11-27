@@ -92,7 +92,6 @@ extern void uInformation ( const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uAction ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uWarning ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uError ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
-extern void uFatalError( const char *s,...) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uInternalError ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
 
 /***====================================================================***/
@@ -118,15 +117,6 @@ extern	int uStrCasePrefix(
 );
 #endif
 #define	uStringDup(s1)		(strdup(s1))
-
-/***====================================================================***/
-
-#ifdef	ASSERTIONS_ON
-#define	uASSERT(where,why) \
-	{if (!(why)) uFatalError("assertion botched in %s ( why )\n",where);}
-#else
-#define	uASSERT(where,why)
-#endif
 
 /***====================================================================***/
 

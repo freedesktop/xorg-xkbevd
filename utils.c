@@ -217,23 +217,6 @@ uError(const char *s,...)
 /***====================================================================***/
 
 void
-uFatalError(const char *s,...)
-{
-    va_list ap;
-
-    va_start(ap, s);
-    fprintf(errorFile,"Fatal Error:      ");
-    vfprintf(errorFile,s,ap);
-    fprintf(errorFile,"                  Exiting\n");
-    fflush(errorFile);
-    va_end(ap);
-    exit(1);
-    /* NOTREACHED */
-}
-
-/***====================================================================***/
-
-void
 uInternalError(const char *s,...)
 {
     va_list ap;
