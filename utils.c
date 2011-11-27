@@ -33,60 +33,6 @@
 unsigned int DEBUG_VAR;
 
 /***====================================================================***/
-
-Opaque
-uAlloc(unsigned size)
-{
-    return((Opaque)malloc(size));
-}
-
-/***====================================================================***/
-
-Opaque
-uCalloc(unsigned n, unsigned size)
-{
-    return((Opaque)calloc(n,size));
-}
-
-/***====================================================================***/
-
-Opaque
-uRealloc(Opaque old, unsigned newSize)
-{
-    if (old==NULL)
-	 return((Opaque)malloc(newSize));
-    else return((Opaque)realloc((char *)old,newSize));
-}
-
-/***====================================================================***/
-
-Opaque
-uRecalloc(Opaque old, unsigned nOld, unsigned nNew, unsigned itemSize)
-{
-char *rtrn;
-
-    if (old==NULL)
-	 rtrn= (char *)calloc(nNew,itemSize);
-    else {
-	rtrn= (char *)realloc((char *)old,nNew*itemSize);
-   	if ((rtrn)&&(nNew>nOld)) {
-	    bzero(&rtrn[nOld*itemSize],(nNew-nOld)*itemSize);
-	}
-    }
-    return (Opaque)rtrn;
-}
-
-/***====================================================================***/
-
-void
-uFree(Opaque ptr)
-{
-    if (ptr!=(Opaque)NULL)
-	free((char *)ptr);
-    return;
-}
-
-/***====================================================================***/
 /***                  FUNCTION ENTRY TRACKING                           ***/
 /***====================================================================***/
 
@@ -301,20 +247,6 @@ uInternalError(const char *s,...)
 }
 
 /***====================================================================***/
-
-#ifndef HAVE_STRDUP
-char *
-uStringDup(const char *str)
-{
-char *rtrn;
-
-    if (str==NULL)
-	return NULL;
-    rtrn= (char *)uAlloc(strlen(str)+1);
-    strcpy(rtrn,str);
-    return rtrn;
-}
-#endif
 
 #ifndef HAVE_STRCASECMP
 int

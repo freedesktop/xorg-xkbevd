@@ -45,7 +45,7 @@ if test ! -f "cfgparse.c"; then
    fi
 fi
 
-AC_CHECK_FUNCS([strdup strcasecmp])
+AC_CHECK_FUNCS([strcasecmp])
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XKBEVD, xkbfile x11)

@@ -87,41 +87,6 @@ typedef union {
 
 /***====================================================================***/
 
-extern	Opaque	uAlloc(
-    unsigned	/* size */
-);
-extern	Opaque	uCalloc(
-    unsigned	/* n */,
-    unsigned	/* size */
-);
-extern	Opaque	uRealloc(
-    Opaque	/* old */,
-    unsigned	/* newSize */
-);
-extern	Opaque	uRecalloc(
-    Opaque 	/* old */,
-    unsigned	/* nOld */,
-    unsigned	/* nNew */,
-    unsigned 	/* newSize */
-);
-extern	void	uFree(
-    Opaque	/* ptr */
-);
-
-#define	uTypedAlloc(t)		((t *)uAlloc((unsigned)sizeof(t)))
-#define	uTypedCalloc(n,t)	((t *)uCalloc((unsigned)n,(unsigned)sizeof(t)))
-#define	uTypedRealloc(pO,n,t)	((t *)uRealloc((Opaque)pO,((unsigned)n)*sizeof(t)))
-#define	uTypedRecalloc(pO,o,n,t) ((t *)uRecalloc((Opaque)pO,((unsigned)o),((unsigned)n),sizeof(t)))
-#if (defined mdHasAlloca) && (mdHasAlloca)
-#define	uTmpAlloc(n)	((Opaque)alloca((unsigned)n))
-#define	uTmpFree(p)
-#else
-#define	uTmpAlloc(n)	uAlloc(n)
-#define	uTmpFree(p)	uFree(p)
-#endif
-
-/***====================================================================***/
-
 extern Boolean uSetErrorFile ( const char *name );
 extern void uInformation ( const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
 extern void uAction ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
@@ -152,13 +117,7 @@ extern	int uStrCasePrefix(
 	const char *	/* str */
 );
 #endif
-#ifdef HAVE_STRDUP
 #define	uStringDup(s1)		(strdup(s1))
-#else
-extern	char *uStringDup(
-	const char *	/* s1 */
-);
-#endif
 
 /***====================================================================***/
 
