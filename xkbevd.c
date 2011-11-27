@@ -58,7 +58,7 @@
 
 static char *	dpyName=	NULL;
 Display *	dpy=		NULL;
-static char *	cfgFileName=	NULL;
+static const char *	cfgFileName=	NULL;
 int		xkbOpcode=	0;
 int		xkbEventCode=	0;
 Bool		detectableRepeat= False;
@@ -72,8 +72,8 @@ static Bool	synch=		False;
 static int	verbose=	0;
 static Bool	background=	False;
 
-static char *	soundCmd=	NULL;
-static char *	soundDir=	NULL;
+static const char *	soundCmd=	NULL;
+static const char *	soundDir=	NULL;
 
 XkbDescPtr	xkb=		NULL;
 
@@ -474,7 +474,7 @@ Bool		ok;
 	cfgFileName= buf;
     }
     if (uStringEqual(cfgFileName,"-")) {
-	static char *in= "stdin";
+	static const char *in= "stdin";
 	file= stdin;
 	cfgFileName= in;
     }
