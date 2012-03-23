@@ -38,7 +38,7 @@ it is taken as a shell command.
 Variable definitions in the argument string are expanded with fields from
 the event in question before the argument string is passed to the action
 processor.   The general syntax for a variable is
-either $\fIc\P or $(\fIstr\fP), where \fIc\fP is a single character and
+either $\fIc\fP or $(\fIstr\fP), where \fIc\fP is a single character and
 \fIstr\fP is a string of arbitrary length.  All parameters have both
 single-character and long names.
 .PP
