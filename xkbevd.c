@@ -24,7 +24,6 @@
 
  ********************************************************/
 
-#define	DEBUG_VAR xkbevdDebug
 #include <X11/Xosdefs.h>
 #include <stdlib.h>
 #include "xkbevd.h"
@@ -459,8 +458,6 @@ Bool		ok;
 
 
     yyin = stdin;
-    uSetEntryFile(NullString);
-    uSetDebugFile(NullString);
     uSetErrorFile(NullString);
 
     if (!parseArgs(argc,argv))

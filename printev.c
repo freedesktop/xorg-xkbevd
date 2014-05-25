@@ -24,7 +24,6 @@
 
  ********************************************************/
 
-#define	DEBUG_VAR printevDebug
 #include "xkbevd.h"
 #include <X11/Xutil.h>
 
