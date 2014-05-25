@@ -89,6 +89,7 @@ Usage(int argc, char *argv[])
             "-bg                  Run in background\n"
             "-synch               Force synchronization\n"
             "-v                   Print verbose messages\n"
+            "-version             Print program version\n"
         );
     return;
 }
@@ -193,6 +194,10 @@ parseArgs(int argc, char *argv[])
         }
         else if (strcmp(argv[i], "-v") == 0) {
             verbose++;
+        }
+        else if (strcmp(argv[i], "-version") == 0) {
+            puts(PACKAGE_STRING);
+            exit(0);
         }
         else if ((strcmp(argv[i], "-?") == 0) ||
                  (strcmp(argv[i], "-help") == 0)) {

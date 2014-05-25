@@ -85,6 +85,9 @@ Forces synchronization of all X requests.  Slow.
 .B \-v
 Print more information, including debugging messages.  Multiple
 specifications of \fI-v\fP cause more output, to a point.
+.TP 8
+.B \-version
+Prints the program version and exits.
 .SH "SEE ALSO"
 X(__miscmansuffix__)
 .SH COPYRIGHT
