@@ -410,7 +410,7 @@ int		ok;
 	    return True;
 	case EchoAction:
 	    if (cfg->action.text!=NULL) {
-		sprintf(buf,"%s",cfg->action.text);
+		snprintf(buf,sizeof(buf),"%s",cfg->action.text);
 		cmd= SubstituteEventArgs(buf,ev);
 		printf("%s",cmd);
 	    }
@@ -432,7 +432,7 @@ int		ok;
 		uAction("Ignored\n");
 		return True;
 	    }
-	    sprintf(buf,"%s %s%s",soundCmd,soundDir,cfg->action.text);
+	    snprintf(buf,sizeof(buf),"%s %s%s",soundCmd,soundDir,cfg->action.text);
 	    cmd= buf;
 	    break;
 	default:
@@ -467,7 +467,7 @@ Bool		ok;
     if (cfgFileName==NULL) {
 	char *home;
 	home= (char *)getenv("HOME");
-	sprintf(buf,DFLT_XKBEVD_CONFIG,(home?home:""));
+	snprintf(buf,sizeof(buf),DFLT_XKBEVD_CONFIG,(home?home:""));
 	cfgFileName= buf;
     }
     if (uStringEqual(cfgFileName,"-")) {
@@ -483,7 +483,7 @@ Bool		ok;
 		uAction("Exiting\n");
 		exit(1);
 	    }
-	    sprintf(buf,DFLT_SYS_XKBEVD_CONFIG,DFLT_XKB_CONFIG_ROOT);
+	    snprintf(buf,sizeof(buf),DFLT_SYS_XKBEVD_CONFIG,DFLT_XKB_CONFIG_ROOT);
 	    file= fopen(cfgFileName,"r");
 	    if (file==NULL && !eventMask) {
 		if (verbose) {

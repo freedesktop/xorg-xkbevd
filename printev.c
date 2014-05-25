@@ -192,7 +192,7 @@ do_XkbAccessXNotify(FILE *file, XkbEvent *xkbev)
 	case XkbAXN_AXKWarning: detail= "warning"; break;
 	default: {
 	    static char buf[20];
-	    sprintf(buf,"unknown(%d)",sk->detail);
+	    snprintf(buf, sizeof(buf), "unknown(%d)", sk->detail);
 	    detail= buf;
 	    break;
 	}

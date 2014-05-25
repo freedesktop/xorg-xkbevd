@@ -61,45 +61,45 @@ tokText(int tok)
 static char buf[32];
 
     switch (tok) {
-	case END_OF_FILE:	sprintf(buf, "END_OF_FILE");break;
-	case ERROR:		sprintf(buf, "ERROR");	break;
+	case END_OF_FILE:	snprintf(buf, sizeof(buf), "END_OF_FILE");break;
+	case ERROR:		snprintf(buf, sizeof(buf), "ERROR");	break;
 
-	case BELL:		sprintf(buf, "BELL"); break;
-	case ACCESSX:		sprintf(buf, "ACCESSX"); break;
-	case MESSAGE:		sprintf(buf, "MESSAGE"); break;
+	case BELL:		snprintf(buf, sizeof(buf), "BELL");	break;
+	case ACCESSX:		snprintf(buf, sizeof(buf), "ACCESSX");	break;
+	case MESSAGE:		snprintf(buf, sizeof(buf), "MESSAGE");	break;
 
-	case NONE:		sprintf(buf, "NONE"); break;
-	case IGNORE:		sprintf(buf, "IGNORE"); break;
-	case ECHO:		sprintf(buf, "ECHO"); break;
-	case PRINT_EV:		sprintf(buf, "PRINT_EV"); break;
-	case SHELL:		sprintf(buf, "SHELL"); break;
-	case SOUND:		sprintf(buf, "SOUND"); break;
+	case NONE:		snprintf(buf, sizeof(buf), "NONE");	break;
+	case IGNORE:		snprintf(buf, sizeof(buf), "IGNORE");	break;
+	case ECHO:		snprintf(buf, sizeof(buf), "ECHO");	break;
+	case PRINT_EV:		snprintf(buf, sizeof(buf), "PRINT_EV"); break;
+	case SHELL:		snprintf(buf, sizeof(buf), "SHELL");	break;
+	case SOUND:		snprintf(buf, sizeof(buf), "SOUND");	break;
 
-	case EQUALS:		sprintf(buf, "EQUALS");	break;
-	case PLUS:		sprintf(buf, "PLUS");	break;
-	case MINUS:		sprintf(buf, "MINUS");	break;
-	case DIVIDE:		sprintf(buf, "DIVIDE");	break;
-	case TIMES:		sprintf(buf, "TIMES");	break;
-	case OBRACE:		sprintf(buf, "OBRACE");	break;
-	case CBRACE:		sprintf(buf, "CBRACE");	break;
-	case OPAREN:		sprintf(buf, "OPAREN");	break;
-	case CPAREN:		sprintf(buf, "CPAREN");	break;
-	case OBRACKET:		sprintf(buf, "OBRACKET");break;
-	case CBRACKET:		sprintf(buf, "CBRACKET");break;
-	case DOT:		sprintf(buf, "DOT");	break;
-	case COMMA:		sprintf(buf, "COMMA");	break;
-	case SEMI:		sprintf(buf, "SEMI");	break;
-	case EXCLAM:		sprintf(buf, "EXCLAM");	break;
-	case INVERT:		sprintf(buf, "INVERT");	break;
+	case EQUALS:		snprintf(buf, sizeof(buf), "EQUALS");	break;
+	case PLUS:		snprintf(buf, sizeof(buf), "PLUS");	break;
+	case MINUS:		snprintf(buf, sizeof(buf), "MINUS");	break;
+	case DIVIDE:		snprintf(buf, sizeof(buf), "DIVIDE");	break;
+	case TIMES:		snprintf(buf, sizeof(buf), "TIMES");	break;
+	case OBRACE:		snprintf(buf, sizeof(buf), "OBRACE");	break;
+	case CBRACE:		snprintf(buf, sizeof(buf), "CBRACE");	break;
+	case OPAREN:		snprintf(buf, sizeof(buf), "OPAREN");	break;
+	case CPAREN:		snprintf(buf, sizeof(buf), "CPAREN");	break;
+	case OBRACKET:		snprintf(buf, sizeof(buf), "OBRACKET");	break;
+	case CBRACKET:		snprintf(buf, sizeof(buf), "CBRACKET");	break;
+	case DOT:		snprintf(buf, sizeof(buf), "DOT");	break;
+	case COMMA:		snprintf(buf, sizeof(buf), "COMMA");	break;
+	case SEMI:		snprintf(buf, sizeof(buf), "SEMI");	break;
+	case EXCLAM:		snprintf(buf, sizeof(buf), "EXCLAM");	break;
+	case INVERT:		snprintf(buf, sizeof(buf), "INVERT");	break;
 
-	case STRING:		sprintf(buf, "STRING (%s)",scanStr);	break;
-	case INTEGER:		sprintf(buf, "INTEGER (0x%x)",scanInt);	break;
-	case FLOAT:		sprintf(buf, "FLOAT (%d.%d)",
+	case STRING:		snprintf(buf, sizeof(buf), "STRING (%s)",scanStr);	break;
+	case INTEGER:		snprintf(buf, sizeof(buf), "INTEGER (0x%x)",scanInt);	break;
+	case FLOAT:		snprintf(buf, sizeof(buf), "FLOAT (%d.%d)",
 					     scanInt/XkbGeomPtsPerMM,
-					     scanInt%XkbGeomPtsPerMM);break;
-	case IDENT:		sprintf(buf, "IDENT (%s)",scanStr);	break;
-	case KEYNAME:		sprintf(buf, "KEYNAME (%s)",scanStr);	break;
-	default:		sprintf(buf, "UNKNOWN");	break;
+					     scanInt%XkbGeomPtsPerMM);	break;
+	case IDENT:		snprintf(buf, sizeof(buf), "IDENT (%s)",scanStr);	break;
+	case KEYNAME:		snprintf(buf, sizeof(buf), "KEYNAME (%s)",scanStr);	break;
+	default:		snprintf(buf, sizeof(buf), "UNKNOWN");	break;
     }
     return buf;
 }
