@@ -483,9 +483,7 @@ main(int argc, char *argv[])
     file = NULL;
     XkbInitAtoms(NULL);
     if (cfgFileName == NULL) {
-        char *home;
-
-        home = (char *) getenv("HOME");
+        char *home = getenv("HOME");
         snprintf(buf, sizeof(buf), DFLT_XKBEVD_CONFIG, (home ? home : ""));
         cfgFileName = buf;
     }
