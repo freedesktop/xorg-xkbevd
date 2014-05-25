@@ -28,9 +28,6 @@
 #include <stdlib.h>
 #include "xkbevd.h"
 
-
-#define	lowbit(x)	((x) & (-(x)))
-
 /***====================================================================***/
 
 #ifndef DFLT_XKBEVD_CONFIG
