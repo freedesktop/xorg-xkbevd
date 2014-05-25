@@ -3,10 +3,10 @@
 
   /*\
    *
-   *		              COPYRIGHT 1990
-   *		        DIGITAL EQUIPMENT CORPORATION
-   *		           MAYNARD, MASSACHUSETTS
-   *			    ALL RIGHTS RESERVED.
+   *                          COPYRIGHT 1990
+   *                    DIGITAL EQUIPMENT CORPORATION
+   *                       MAYNARD, MASSACHUSETTS
+   *                        ALL RIGHTS RESERVED.
    *
    * THE INFORMATION IN THIS SOFTWARE IS SUBJECT TO CHANGE WITHOUT NOTICE AND
    * SHOULD NOT BE CONSTRUED AS A COMMITMENT BY DIGITAL EQUIPMENT CORPORATION.
@@ -42,7 +42,6 @@
 
 _XFUNCPROTOBEGIN
 
-
 #ifndef NUL
 #define	NUL	'\0'
 #endif
@@ -50,24 +49,24 @@ _XFUNCPROTOBEGIN
 /***====================================================================***/
 
 #ifndef OPAQUE_DEFINED
-typedef	void *Opaque;
+typedef void *Opaque;
 #endif
 #ifndef NullOpaque
 #define	NullOpaque	((Opaque)NULL)
 #endif
 
 #ifndef BOOLEAN_DEFINED
-typedef	char	Boolean;
+typedef char Boolean;
 #endif
 
 #ifndef True
 #define	True	((Boolean)1)
 #define	False	((Boolean)0)
-#endif /* ndef True */
+#endif                          /* ndef True */
 #define	booleanText(b)	((b)?"True":"False")
 
 #ifndef COMPARISON_DEFINED
-typedef	int		Comparison;
+typedef int Comparison;
 
 #define	Greater		((Comparison)1)
 #define	Equal		((Comparison)0)
@@ -76,15 +75,15 @@ typedef	int		Comparison;
 #define	comparisonText(c)	((c)?((c)<0?"Less":"Greater"):"Equal")
 #endif
 
-
 /***====================================================================***/
 
-extern Boolean uSetErrorFile ( const char *name );
-extern void uInformation ( const char *s, ...) _X_ATTRIBUTE_PRINTF(1,2);
-extern void uAction ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
-extern void uWarning ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
-extern void uError ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
-extern void uInternalError ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
+extern Boolean uSetErrorFile(const char *name);
+
+extern void uInformation(const char *s, ...)_X_ATTRIBUTE_PRINTF(1, 2);
+extern void uAction(const char *s, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+extern void uWarning(const char *s, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+extern void uError(const char *s, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+extern void uInternalError(const char *s, ...) _X_ATTRIBUTE_PRINTF(1, 2);
 
 /***====================================================================***/
 
@@ -98,10 +97,7 @@ extern void uInternalError ( const char *s, ... ) _X_ATTRIBUTE_PRINTF(1,2);
 #ifdef HAVE_STRCASECMP
 #define	uStrCaseCmp(s1,s2)	(strcasecmp(s1,s2))
 #else
-extern	int uStrCaseCmp(
-	const char *	/* s1 */,
- 	const char *	/* s2 */
-);
+extern int uStrCaseCmp(const char *s1, const char *s2);
 #endif
 #define	uStringDup(s1)		(strdup(s1))
 
@@ -109,6 +105,4 @@ extern	int uStrCaseCmp(
 
 _XFUNCPROTOEND
 
-#endif /* UTILS_H */
-
-
+#endif                          /* UTILS_H */
